@@ -1,31 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+
+const initalitems = [];
 
 function App() {
   return (
-    <div className="App">
-          <Logo />
-          <Form />
-          <Packinglist />
-          <Stats />
+    <div className="app">
+      <Logo />
+      <Form />
+      <Packinglist />
+      <Stats />
     </div>
   );
 }
 
 function Logo() {
-  return<h2> Far waya</h2>
+  return (
+    <div>
+      <h1> Far waya</h1>
+    </div>
+  );
 }
 
 function Form() {
-  return<h3>What do you need for your trip? </h3>
+  return (
+    <div className="add-form">
+      <h3>What do you need for your trip? </h3>
+    </div>
+  );
 }
 
 function Packinglist() {
-  return
+  return <div className="list">LIST</div>;
 }
 
 function Stats() {
-  return <h3>Start adding some items to packing list</h3>
+  return (
+    <footer className="stats">
+      <em>Start adding some items to packing list</em>
+    </footer>
+  );
 }
 
 export default App;
