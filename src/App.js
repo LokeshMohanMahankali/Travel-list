@@ -1,7 +1,12 @@
 import logo from "./logo.svg";
 import "./App.css";
 
-const initalitems = [];
+const initalitems = [
+  { id: 1, description: "passports", quality: 2, packed: true },
+  { id: 2, description: "socks", quality: 12, package: false },
+  { id: 2, description: "Shirts", quality: 7, package: false },
+  { id: 2, description: "Phants", quality: 9, package: false },
+];
 
 function App() {
   return (
@@ -31,7 +36,27 @@ function Form() {
 }
 
 function Packinglist() {
-  return <div className="list">LIST</div>;
+  return (
+    <div className="list">
+      <ul>
+        {initalitems.map((item) => (
+          <Item item={item} />
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function Item({ item }) {
+  return (
+    <li>
+      <span style={item.package ? { textDecoration: "line-through" } : {}}>
+        {item.quality}
+        {item.description}
+      </span>
+      <button>x</button>
+    </li>
+  );
 }
 
 function Stats() {
