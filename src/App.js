@@ -41,7 +41,7 @@ function App() {
         Ondeleteitems={handeldeleteitems}
         Onupdateitem={Handleupdateitems}
       />
-      <Stats />
+      <Stats item={items} />
     </div>
   );
 }
@@ -125,10 +125,19 @@ function Item({ item, Ondeleteitems, Onupdateitem }) {
   );
 }
 
-function Stats() {
+function Stats({ item }) {
+  const numlenght = item.length;
+  const numpacked = item.filter((item) => item.packed).length;
+  const percentage = Math.round((numpacked / numlenght) * 100);
+
   return (
     <footer className="stats">
-      <em>Start adding some items to packing list</em>
+      <em>
+        {" "}
+        💼 You have {numlenght} items on your list, and you already packed
+        {numpacked}
+        {percentage}
+      </em>
     </footer>
   );
 }
