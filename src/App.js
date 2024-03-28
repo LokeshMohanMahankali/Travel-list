@@ -105,23 +105,35 @@ function Packinglist({ item, Ondeleteitems, Onupdateitem }) {
           />
         ))}
       </ul>
+      <div>
+        <select className="actions">
+          <option value="input"> Sort by input order </option>
+          <option value="description"> Sort by description </option>
+          <option value="packed"> Sort by packed </option>
+        </select>
+        {/* <div>
+          <button className="button">clear All</button>
+        </div> */}
+      </div>
     </div>
   );
 }
 
 function Item({ item, Ondeleteitems, Onupdateitem }) {
   return (
-    <li>
-      <input
-        type="checkbox"
-        value={item.package}
-        onChange={() => Onupdateitem(item.id)}
-      />
-      <span style={item.packed ? { textDecoration: "line-through" } : {}}>
-        {item.quantity} {item.description}
-      </span>
-      <button onClick={() => Ondeleteitems(item.id)}>❌</button>
-    </li>
+    <div>
+      <li>
+        <input
+          type="checkbox"
+          value={item.package}
+          onChange={() => Onupdateitem(item.id)}
+        />
+        <span style={item.packed ? { textDecoration: "line-through" } : {}}>
+          {item.quantity} {item.description}
+        </span>
+        <button onClick={() => Ondeleteitems(item.id)}>❌</button>
+      </li>
+    </div>
   );
 }
 
